@@ -29,7 +29,6 @@
         
         html, body {
             font-family: 'Montserrat', sans-serif;
-            /* Removido overflow: hidden para permitir scroll */
         }
         
         /* Container principal do slide com altura mínima flexível */
@@ -40,7 +39,6 @@
             /* Gradiente diagonal criando profundidade visual */
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7303c0 100%);
             color: white;
-            /* Removido overflow: hidden para permitir scroll quando necessário */
         }
         
         /* Elementos decorativos circulares para criar textura de fundo */
@@ -63,22 +61,19 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text; /* Fallback para outros navegadores */
-            animation: fadeInUp 1.2s ease-out;
             margin-bottom: 1rem; /* Espaçamento inferior */
         }
         
-        /* Subtítulo com peso visual menor e animação sincronizada - responsivo */
+        /* Subtítulo com peso visual menor - responsivo */
         .subtitle {
             font-size: clamp(0.9rem, 2.5vw, 1.8rem); /* Ajustado para melhor legibilidade */
             font-weight: 300;
             opacity: 0.9;
-            animation: fadeInUp 1.5s ease-out;
             margin-bottom: 2rem; /* Espaçamento para separar do conteúdo abaixo */
         }
         
-        /* Classe para ícones com animação flutuante - responsivo */
-        .animated-icon {
-            animation: float 3s ease-in-out infinite;
+        /* Classe para ícones - responsivo */
+        .icon {
             font-size: clamp(1.5rem, 4vw, 3rem); /* Reduzido para melhor proporção mobile */
         }
         
@@ -102,31 +97,6 @@
         .main-content {
             position: relative;
             z-index: 10;
-        }
-        
-        /* Animação de entrada: fade + movimento vertical */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px); /* Reduzido para mobile */
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Animação de flutuação contínua para elementos dinâmicos */
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-10px); /* Reduzido movimento para mobile */
-            }
-            100% {
-                transform: translateY(0px);
-            }
         }
         
         /* Media queries para ajustes específicos */
@@ -193,16 +163,16 @@
             
             <!-- Linha de ícones representando os pilares do negócio -->
             <div class="icons-row flex justify-center mb-6 sm:mb-8 space-x-6 sm:space-x-12 w-full">
-                <!-- Ícone: Cérebro (Inteligência) com delay de animação escalonado -->
-                <div class="animated-icon text-blue-200" style="animation-delay: 0s;">
+                <!-- Ícone: Cérebro (Inteligência) -->
+                <div class="icon text-blue-200">
                     <i class="fas fa-brain"></i>
                 </div>
                 <!-- Ícone: Robô (Automação) -->
-                <div class="animated-icon text-indigo-300" style="animation-delay: 0.3s;">
+                <div class="icon text-indigo-300">
                     <i class="fas fa-robot"></i>
                 </div>
                 <!-- Ícone: Engrenagens (Processos) -->
-                <div class="animated-icon text-purple-300" style="animation-delay: 0.6s;">
+                <div class="icon text-purple-300">
                     <i class="fas fa-cogs"></i>
                 </div>
             </div>
