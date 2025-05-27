@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título descritivo que comunica claramente o propósito da página -->
+    <title>Automação & Inteligência Artificial</title>
+    
+    <!-- Dependências externas: Framework CSS Tailwind para estilização responsiva -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Biblioteca de ícones FontAwesome para elementos visuais -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Otimização de carregamento de fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonte personalizada Montserrat com pesos específicos para hierarquia visual -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset básico e configuração da fonte principal */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            font-family: 'Montserrat', sans-serif;
+            /* Removido overflow: hidden para permitir scroll */
+        }
+        
+        /* Container principal do slide com altura mínima flexível */
+        .slide {
+            width: 100%;
+            min-height: 100vh; /* Altura mínima da viewport, permite expansão */
+            position: relative;
+            /* Gradiente diagonal criando profundidade visual */
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7303c0 100%);
+            color: white;
+            /* Removido overflow: hidden para permitir scroll quando necessário */
+        }
+        
+        /* Elementos decorativos circulares para criar textura de fundo */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            /* Adicionado z-index baixo para ficar atrás do conteúdo */
+            z-index: 1;
+        }
+        
+        /* Estilização do título principal com efeitos visuais avançados - responsivo */
+        .title {
+            font-size: clamp(2rem, 6vw, 4.5rem); /* Ajustado tamanho mínimo para mobile */
+            font-weight: 700;
+            line-height: 1.2; /* Melhor espaçamento para mobile */
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            /* Gradiente no texto para efeito premium */
+            background: linear-gradient(90deg, #ffffff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text; /* Fallback para outros navegadores */
+            animation: fadeInUp 1.2s ease-out;
+            margin-bottom: 1rem; /* Espaçamento inferior */
+        }
+        
+        /* Subtítulo com peso visual menor e animação sincronizada - responsivo */
+        .subtitle {
+            font-size: clamp(0.9rem, 2.5vw, 1.8rem); /* Ajustado para melhor legibilidade */
+            font-weight: 300;
+            opacity: 0.9;
+            animation: fadeInUp 1.5s ease-out;
+            margin-bottom: 2rem; /* Espaçamento para separar do conteúdo abaixo */
+        }
+        
+        /* Classe para ícones com animação flutuante - responsivo */
+        .animated-icon {
+            animation: float 3s ease-in-out infinite;
+            font-size: clamp(1.5rem, 4vw, 3rem); /* Reduzido para melhor proporção mobile */
+        }
+        
+        /* Ícones de fundo responsivos */
+        .background-icon {
+            font-size: clamp(3rem, 8vw, 6rem); /* Reduzido para não sobrecarregar mobile */
+        }
+        
+        /* Logo responsivo */
+        .logo {
+            height: clamp(4rem, 10vw, 8rem); /* Ajustado para mobile */
+            width: clamp(4rem, 10vw, 8rem);
+        }
+        
+        /* Texto da empresa responsivo */
+        .company-text {
+            font-size: clamp(0.7rem, 2vw, 1.1rem); /* Ajustado para mobile */
+        }
+        
+        /* Container principal com z-index para ficar acima dos elementos decorativos */
+        .main-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Animação de entrada: fade + movimento vertical */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px); /* Reduzido para mobile */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Animação de flutuação contínua para elementos dinâmicos */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px); /* Reduzido movimento para mobile */
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        /* Media queries para ajustes específicos */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 1rem;
+            }
+            
+            /* Ajuste dos círculos decorativos para mobile */
+            .circle {
+                width: 150px !important;
+                height: 150px !important;
+            }
+            
+            /* Ajuste do espaçamento dos ícones no mobile */
+            .icons-row {
+                margin-bottom: 2rem;
+            }
+            
+            /* Ajuste do rodapé para mobile */
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 0.5rem;
+            }
+            
+            /* Posicionamento dos ícones de fundo para mobile */
+            .background-icon-container {
+                display: none; /* Oculta em telas muito pequenas para não poluir */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* Ajustes para telas muito pequenas */
+            .slide {
+                padding: 0.5rem;
+            }
+            
+            .icons-row {
+                gap: 1rem;
+            }
+        }
+        
+        /* Melhorias para telas grandes */
+        @media (min-width: 1200px) {
+            .slide {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Container principal usando Flexbox para centralização perfeita -->
+    <div class="slide flex flex-col items-center justify-center px-4 sm:px-8 lg:px-20 py-8">
+        
+        <!-- Elementos de fundo decorativos -->
+        <!-- Círculos posicionados estrategicamente para criar profundidade -->
+        <div class="circle" style="width: 300px; height: 300px; top: -150px; right: -150px;"></div>
+        <div class="circle" style="width: 250px; height: 250px; bottom: -125px; left: -125px;"></div>
+        
+        <!-- Conteúdo principal -->
+        <div class="main-content flex flex-col items-center justify-center text-center w-full max-w-6xl">
+            
+            <!-- Linha de ícones representando os pilares do negócio -->
+            <div class="icons-row flex justify-center mb-6 sm:mb-8 space-x-6 sm:space-x-12 w-full">
+                <!-- Ícone: Cérebro (Inteligência) com delay de animação escalonado -->
+                <div class="animated-icon text-blue-200" style="animation-delay: 0s;">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <!-- Ícone: Robô (Automação) -->
+                <div class="animated-icon text-indigo-300" style="animation-delay: 0.3s;">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <!-- Ícone: Engrenagens (Processos) -->
+                <div class="animated-icon text-purple-300" style="animation-delay: 0.6s;">
+                    <i class="fas fa-cogs"></i>
+                </div>
+            </div>
+            
+            <!-- Conteúdo textual principal -->
+            <div class="px-4 sm:px-8 lg:px-12">
+                <!-- Título principal com classe personalizada -->
+                <h1 class="title">Automação & Inteligência Artificial</h1>
+                <!-- Subtítulo explicativo -->
+                <p class="subtitle">Automação Inteligente ao alcance do seu negócio</p>
+            </div>
+        </div>
+        
+        <!-- Rodapé com identidade da empresa -->
+        <div class="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+            <div class="footer-content flex items-center">
+                <!-- Logo da empresa -->
+                <img src="../assets/logo.png" alt="logo" class="logo object-contain mr-2 sm:mr-4">
+                <!-- Nome/slogan da empresa -->
+                <div class="company-text font-semibold tracking-wide">MR Soluções Digitais</div>
+            </div>
+        </div>
+        
+        <!-- Elementos visuais de fundo com baixa opacidade -->
+        <!-- Ícone de rede no canto superior direito -->
+        <div class="background-icon-container absolute top-4 sm:top-8 lg:top-16 right-4 sm:right-8 lg:right-16 opacity-20">
+            <i class="fas fa-network-wired background-icon"></i>
+        </div>
+        <!-- Ícone de microchip no canto inferior esquerdo -->
+        <div class="background-icon-container absolute bottom-16 sm:bottom-20 lg:bottom-24 left-4 sm:left-8 lg:left-16 opacity-20">
+            <i class="fas fa-microchip background-icon"></i>
+        </div>
+    </div>
+</body>
+</html>
